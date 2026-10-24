@@ -1,0 +1,128 @@
+{
+  "network": {
+    "schema_version": 1,
+    "name": "Transformer Delta Yg",
+    "base_mva": 100,
+    "buses": [
+      {
+        "id": "source",
+        "base_kv": 11
+      },
+      {
+        "id": "fault",
+        "base_kv": 0.415
+      }
+    ],
+    "sources": [
+      {
+        "id": "utility",
+        "bus": "source",
+        "z1": [
+          0.01,
+          0.12
+        ],
+        "z2": [
+          0.01,
+          0.14
+        ],
+        "z0": [
+          0.025,
+          0.2
+        ],
+        "neutral_z": [
+          0,
+          0
+        ],
+        "grounded": true,
+        "emf_pu": 1.0,
+        "angle_deg": 0.0,
+        "status": true
+      }
+    ],
+    "branches": [
+      {
+        "id": "feeder",
+        "from": "source",
+        "to": "fault",
+        "kind": "transformer",
+        "z1": [
+          0.02,
+          0.18
+        ],
+        "z2": [
+          0.02,
+          0.18
+        ],
+        "z0": [
+          0.06,
+          0.4
+        ],
+        "tap": 1.0,
+        "shift_deg": -30,
+        "from_winding": "D",
+        "to_winding": "Yg",
+        "from_neutral_z": [
+          0,
+          0
+        ],
+        "to_neutral_z": [
+          0,
+          0
+        ],
+        "status": true
+      }
+    ],
+    "equipment": [
+      {
+        "id": "CB-1",
+        "bus": "fault",
+        "breaking_ka": 25,
+        "making_ka_peak": 63,
+        "thermal_ka2s": 625
+      }
+    ]
+  },
+  "fault_type": "slg",
+  "fault_z": [
+    0.0,
+    0.0
+  ],
+  "expected": {
+    "fault_current_real_a": [
+      242916.12681902302,
+      0.0,
+      0.0
+    ],
+    "fault_current_imag_a": [
+      -325780.24305318354,
+      0.0,
+      0.0
+    ],
+    "bus_voltage_real_pu": [
+      [
+        0.819980818795011,
+        -0.30834026042462603,
+        -0.5116405583703848
+      ],
+      [
+        6.245004513516506e-16,
+        -0.07763117595983698,
+        -0.9638186182702524
+      ]
+    ],
+    "bus_voltage_imag_pu": [
+      [
+        -0.12533907673962796,
+        -0.7562977398597542,
+        0.8816368165993822
+      ],
+      [
+        -1.1102230246251565e-16,
+        -1.0424852735310262,
+        0.4845544866423884
+      ]
+    ],
+    "mna_residual_pu": 4.463041323674983e-15
+  },
+  "reference_method": "Independent phase-domain modified nodal admittance with explicit phase fault constraints; no closed-form sequence fault equation."
+}

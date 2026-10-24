@@ -1,8 +1,9 @@
-from .model import validate
+from .model import validate,number
 from .screening import screen
 from .solver import analyze
 
 def duty(data,bus=None,fault_type='3ph',duration_s=.1,c_factor=1.1):
+    duration_s=number(duration_s,'duration_s',0)
     n=validate(data);result=screen(n,bus=bus,c_factor=c_factor,duration_s=duration_s) if fault_type=='3ph' else analyze(n,bus=bus,fault_type=fault_type)
     fault=result['fault'];rows=[];rms=fault['max_phase_rms_a']/1000;screening=result.get('screening')
     for e in n['equipment']:

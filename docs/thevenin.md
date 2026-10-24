@@ -1,0 +1,3 @@
+# Driving-point impedance and floating zero sequence
+
+The solver selects the fault's connected component in each sequence network and solves one unit-current right-hand side. It never inverts or grounds unrelated unsourced islands. A singular positive/negative component fails clearly. A floating zero-sequence component is retained as a null mode instead of substituting a large impedance. For a grounded fault, the fault constraint sets the neutral displacement along that mode. An ungrounded ideal network can have zero ground-fault current yet a finite phase-to-ground voltage displacement; the implementation retains that distinction.

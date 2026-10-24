@@ -1,0 +1,3 @@
+# Fault study engine
+
+`analyze(network, bus, fault_type, fault_z, prefault_profile, voltage_factor)` solves component driving impedances, fault sequence currents, compensation voltages and ABC phasors. The default voltage factor is one. Each study reports the exact fault-impedance definition, driving-point values, source increments, total/incremental branch currents and excluded islands. No tiny artificial ground is inserted to make a singular network invertible. The engine is a classical steady-state symmetrical-component model. Fault-period source data and an appropriate pre-fault profile remain engineering inputs.

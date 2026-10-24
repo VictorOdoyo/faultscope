@@ -1,0 +1,128 @@
+{
+  "network": {
+    "schema_version": 1,
+    "name": "Equal Sequences",
+    "base_mva": 100,
+    "buses": [
+      {
+        "id": "source",
+        "base_kv": 11
+      },
+      {
+        "id": "fault",
+        "base_kv": 11
+      }
+    ],
+    "sources": [
+      {
+        "id": "utility",
+        "bus": "source",
+        "z1": [
+          0.01,
+          0.12
+        ],
+        "z2": [
+          0.01,
+          0.12
+        ],
+        "z0": [
+          0.01,
+          0.12
+        ],
+        "neutral_z": [
+          0,
+          0
+        ],
+        "grounded": true,
+        "emf_pu": 1.0,
+        "angle_deg": 0.0,
+        "status": true
+      }
+    ],
+    "branches": [
+      {
+        "id": "feeder",
+        "from": "source",
+        "to": "fault",
+        "kind": "line",
+        "z1": [
+          0.02,
+          0.18
+        ],
+        "z2": [
+          0.02,
+          0.18
+        ],
+        "z0": [
+          0.02,
+          0.18
+        ],
+        "tap": 1.0,
+        "shift_deg": 0.0,
+        "from_winding": "Yg",
+        "to_winding": "Yg",
+        "from_neutral_z": [
+          0,
+          0
+        ],
+        "to_neutral_z": [
+          0,
+          0
+        ],
+        "status": true
+      }
+    ],
+    "equipment": [
+      {
+        "id": "CB-1",
+        "bus": "fault",
+        "breaking_ka": 25,
+        "making_ka_peak": 63,
+        "thermal_ka2s": 625
+      }
+    ]
+  },
+  "fault_type": "slg",
+  "fault_z": [
+    0.0,
+    0.0
+  ],
+  "expected": {
+    "fault_current_real_a": [
+      1732.2240299718496,
+      0.0,
+      0.0
+    ],
+    "fault_current_imag_a": [
+      -17322.24029971879,
+      0.0,
+      0.0
+    ],
+    "bus_voltage_real_pu": [
+      [
+        0.6006600660065994,
+        -0.49999999999999983,
+        -0.49999999999999917
+      ],
+      [
+        -2.7755575615628914e-15,
+        -0.5000000000000014,
+        -0.49999999999999983
+      ]
+    ],
+    "bus_voltage_imag_pu": [
+      [
+        -0.006600660066005751,
+        -0.8660254037844393,
+        0.8660254037844395
+      ],
+      [
+        2.220446049250313e-15,
+        -0.8660254037844395,
+        0.86602540378444
+      ]
+    ],
+    "mna_residual_pu": 1.6085595323533783e-14
+  },
+  "reference_method": "Independent phase-domain modified nodal admittance with explicit phase fault constraints; no closed-form sequence fault equation."
+}

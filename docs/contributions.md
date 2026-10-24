@@ -1,0 +1,3 @@
+# Contribution accounting
+
+Branch records contain total post-fault phase RMS currents at both terminals and compensation increments separately. Source records contain fault increments only: `-Ysource_seq deltaV_seq`. They exclude any pre-fault circulating current. Direction is source into the network for source increments, and bus into branch for each branch terminal. Transformer terminals use their own ampere bases; do not sum ampere contributions across voltage levels without referring them to a common base. Delta windings may carry internal circulating zero-sequence current while their external line zero-sequence current remains zero; internal winding currents are not reported.

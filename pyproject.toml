@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "faultscope"
+version = "1.0.0"
+description = "Sequence-network fault studies and contribution analysis"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26,<3"]
+license = "MIT"
+authors = [{name = "Victor Odoyo"}]
+[project.scripts]
+faultscope = "faultscope.cli:main"
+[tool.setuptools.packages.find]
+include = ["faultscope*"]
+[tool.setuptools.package-data]
+faultscope = ["web/*", "examples/*.json"]

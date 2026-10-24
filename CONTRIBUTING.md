@@ -1,0 +1,3 @@
+# Contributing
+
+Use Python 3.11+ and NumPy. Run `python -m unittest discover -s tests -v`, `python -m compileall -q faultscope`, and `node --check faultscope/web/app.js`. New equations need explicit units/signs, applicability limits, independent analytical/reference values and engineering documentation. Preserve failure/coverage states. Never reinterpret missing data as a pass. Verify browser edits, invalidation, undo, options and exports. Do not add empty commits, artificial dates or fixtures whose only purpose is increasing the commit count. Keep model, independent verification and documentation changes reviewable.

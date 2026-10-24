@@ -8,6 +8,8 @@
 
 FaultScope provides a reusable NumPy engineering library, JSON CLI and local browser workbench. Numerical results preserve model assumptions, equations or timing conventions, version, UTC timestamp, input hash and options. Source code, independent reference fixtures and engineering notes are reviewable together.
 
+![FaultScope workbench with a verified phase-A-to-ground fault study](docs/images/workbench.png)
+
 ## Start
 
 ```sh

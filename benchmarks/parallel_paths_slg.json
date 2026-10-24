@@ -1,0 +1,159 @@
+{
+  "network": {
+    "schema_version": 1,
+    "name": "Parallel Paths",
+    "base_mva": 100,
+    "buses": [
+      {
+        "id": "source",
+        "base_kv": 11
+      },
+      {
+        "id": "fault",
+        "base_kv": 11
+      }
+    ],
+    "sources": [
+      {
+        "id": "utility",
+        "bus": "source",
+        "z1": [
+          0.01,
+          0.12
+        ],
+        "z2": [
+          0.01,
+          0.14
+        ],
+        "z0": [
+          0.025,
+          0.2
+        ],
+        "neutral_z": [
+          0,
+          0
+        ],
+        "grounded": true,
+        "emf_pu": 1.0,
+        "angle_deg": 0.0,
+        "status": true
+      }
+    ],
+    "branches": [
+      {
+        "id": "feeder",
+        "from": "source",
+        "to": "fault",
+        "kind": "line",
+        "z1": [
+          0.02,
+          0.18
+        ],
+        "z2": [
+          0.02,
+          0.18
+        ],
+        "z0": [
+          0.06,
+          0.4
+        ],
+        "tap": 1.0,
+        "shift_deg": 0.0,
+        "from_winding": "Yg",
+        "to_winding": "Yg",
+        "from_neutral_z": [
+          0,
+          0
+        ],
+        "to_neutral_z": [
+          0,
+          0
+        ],
+        "status": true
+      },
+      {
+        "id": "parallel",
+        "from": "source",
+        "to": "fault",
+        "kind": "line",
+        "z1": [
+          0.03,
+          0.25
+        ],
+        "z2": [
+          0.03,
+          0.27
+        ],
+        "z0": [
+          0.08,
+          0.6
+        ],
+        "tap": 1.0,
+        "shift_deg": 0.0,
+        "from_winding": "Yg",
+        "to_winding": "Yg",
+        "from_neutral_z": [
+          0,
+          0
+        ],
+        "to_neutral_z": [
+          0,
+          0
+        ],
+        "status": true
+      }
+    ],
+    "equipment": [
+      {
+        "id": "CB-1",
+        "bus": "fault",
+        "breaking_ka": 25,
+        "making_ka_peak": 63,
+        "thermal_ka2s": 625
+      }
+    ]
+  },
+  "fault_type": "slg",
+  "fault_z": [
+    0.0,
+    0.0
+  ],
+  "expected": {
+    "fault_current_real_a": [
+      1930.1186182085848,
+      0.0,
+      0.0
+    ],
+    "fault_current_imag_a": [
+      -17033.904034918145,
+      0.0,
+      0.0
+    ],
+    "bus_voltage_real_pu": [
+      [
+        0.4968567737627779,
+        -0.5754414283665354,
+        -0.579687689326594
+      ],
+      [
+        -4.440892098500626e-16,
+        -0.7224392414982542,
+        -0.727428078114277
+      ]
+    ],
+    "bus_voltage_imag_pu": [
+      [
+        -0.007705418946250937,
+        -0.8771162549201837,
+        0.8924091415255124
+      ],
+      [
+        -1.6653345369377348e-16,
+        -0.8724168005371263,
+        0.9033760649876696
+      ]
+    ],
+    "mna_residual_pu": 6.217248937900877e-15
+  },
+  "reference_method": "Independent phase-domain modified nodal admittance with explicit phase fault constraints; no closed-form sequence fault equation."
+}

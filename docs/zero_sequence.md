@@ -1,0 +1,3 @@
+# Zero-sequence transformer paths
+
+Yg–Yg transfers zero sequence through z0 plus both neutral terms 3Zn. Yg–D grounds the grounded-wye terminal through z0+3Zn and blocks transfer to the delta bus; D–Yg is the converse. Y–D, D–Y, D–D and configurations with an ungrounded wye winding have no path in this idealized model. Magnetizing zero-sequence/core paths are omitted. Positive sequence uses the specified complex tap; negative sequence reverses its angle; zero-sequence transfers use magnitude only. The explicit shifts must match the supplied vector-group data; the schema does not infer positive-sequence shifts from winding letters alone.

@@ -1,0 +1,5 @@
+# Validation methodology
+
+The independent reference generator stamps the supported physical networks into complete ABC nodal admittance blocks. It imposes each phase fault through a modified-nodal constraint matrix: three equal phase impedances, one phase-ground branch, one B-C branch, or B/C joined through a common ground impedance. A direct least-squares solve handles floating neutral modes, with the augmented residual checked below 1e-8 pu. Every production fault phase current and every bus phase voltage is compared with the fixed oracle data. Transformer polarity and grounding are explicit in both representations, while the fault-boundary algorithm differs.
+
+Expected values are checked in. The generator in tools/ imports no production faultscope module. A production change must be evaluated against this independent formulation; expected values must not simply be updated to the failing implementation. Dedicated analytical invariants and CLI/HTTP tests cover boundaries outside the fixture grid. No real utility-network, laboratory or manufacturer certification is claimed.

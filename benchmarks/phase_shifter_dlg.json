@@ -1,0 +1,128 @@
+{
+  "network": {
+    "schema_version": 1,
+    "name": "Phase Shifter",
+    "base_mva": 100,
+    "buses": [
+      {
+        "id": "source",
+        "base_kv": 11
+      },
+      {
+        "id": "fault",
+        "base_kv": 11
+      }
+    ],
+    "sources": [
+      {
+        "id": "utility",
+        "bus": "source",
+        "z1": [
+          0.01,
+          0.12
+        ],
+        "z2": [
+          0.01,
+          0.14
+        ],
+        "z0": [
+          0.025,
+          0.2
+        ],
+        "neutral_z": [
+          0,
+          0
+        ],
+        "grounded": true,
+        "emf_pu": 1.0,
+        "angle_deg": 0.0,
+        "status": true
+      }
+    ],
+    "branches": [
+      {
+        "id": "feeder",
+        "from": "source",
+        "to": "fault",
+        "kind": "transformer",
+        "z1": [
+          0.02,
+          0.18
+        ],
+        "z2": [
+          0.02,
+          0.18
+        ],
+        "z0": [
+          0.06,
+          0.4
+        ],
+        "tap": 1.05,
+        "shift_deg": 20,
+        "from_winding": "Yg",
+        "to_winding": "Yg",
+        "from_neutral_z": [
+          0,
+          0
+        ],
+        "to_neutral_z": [
+          0,
+          0
+        ],
+        "status": true
+      }
+    ],
+    "equipment": [
+      {
+        "id": "CB-1",
+        "bus": "fault",
+        "breaking_ka": 25,
+        "making_ka_peak": 63,
+        "thermal_ka2s": 625
+      }
+    ]
+  },
+  "fault_type": "dlg",
+  "fault_z": [
+    0.0,
+    0.0
+  ],
+  "expected": {
+    "fault_current_real_a": [
+      0.0,
+      -12984.835086153173,
+      15210.017317910797
+    ],
+    "fault_current_imag_a": [
+      0.0,
+      8737.096011497415,
+      1509.3907053631947
+    ],
+    "bus_voltage_real_pu": [
+      [
+        1.0305889330892437,
+        -0.24608446402051457,
+        -0.42274758414980235
+      ],
+      [
+        1.0999802833695462,
+        9.08995101411847e-16,
+        1.214306433183765e-17
+      ]
+    ],
+    "bus_voltage_imag_pu": [
+      [
+        -0.15388353576552294,
+        -0.5466433031594644,
+        0.5732922876174088
+      ],
+      [
+        -0.40789050004794053,
+        4.163336342344337e-16,
+        2.8449465006019636e-16
+      ]
+    ],
+    "mna_residual_pu": 4.542766177132399e-15
+  },
+  "reference_method": "Independent phase-domain modified nodal admittance with explicit phase fault constraints; no closed-form sequence fault equation."
+}

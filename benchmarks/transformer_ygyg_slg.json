@@ -1,0 +1,128 @@
+{
+  "network": {
+    "schema_version": 1,
+    "name": "Transformer Ygyg",
+    "base_mva": 100,
+    "buses": [
+      {
+        "id": "source",
+        "base_kv": 11
+      },
+      {
+        "id": "fault",
+        "base_kv": 0.415
+      }
+    ],
+    "sources": [
+      {
+        "id": "utility",
+        "bus": "source",
+        "z1": [
+          0.01,
+          0.12
+        ],
+        "z2": [
+          0.01,
+          0.14
+        ],
+        "z0": [
+          0.025,
+          0.2
+        ],
+        "neutral_z": [
+          0,
+          0
+        ],
+        "grounded": true,
+        "emf_pu": 1.0,
+        "angle_deg": 0.0,
+        "status": true
+      }
+    ],
+    "branches": [
+      {
+        "id": "feeder",
+        "from": "source",
+        "to": "fault",
+        "kind": "transformer",
+        "z1": [
+          0.02,
+          0.18
+        ],
+        "z2": [
+          0.02,
+          0.18
+        ],
+        "z0": [
+          0.06,
+          0.4
+        ],
+        "tap": 1.0,
+        "shift_deg": 0.0,
+        "from_winding": "Yg",
+        "to_winding": "Yg",
+        "from_neutral_z": [
+          0.01,
+          0.02
+        ],
+        "to_neutral_z": [
+          0.02,
+          0.01
+        ],
+        "status": true
+      }
+    ],
+    "equipment": [
+      {
+        "id": "CB-1",
+        "bus": "fault",
+        "breaking_ka": 25,
+        "making_ka_peak": 63,
+        "thermal_ka2s": 625
+      }
+    ]
+  },
+  "fault_type": "slg",
+  "fault_z": [
+    0.0,
+    0.0
+  ],
+  "expected": {
+    "fault_current_real_a": [
+      55370.97115935247,
+      0.0,
+      0.0
+    ],
+    "fault_current_imag_a": [
+      -308663.7115691569,
+      0.0,
+      0.0
+    ],
+    "bus_voltage_real_pu": [
+      [
+        0.6538325829534373,
+        -0.5514612962625243,
+        -0.5560570868687488
+      ],
+      [
+        -2.3314683517128287e-15,
+        -0.797971676909781,
+        -0.8025674675160055
+      ]
+    ],
+    "bus_voltage_imag_pu": [
+      [
+        -0.027747590080871652,
+        -0.8770283905763334,
+        0.8806415050527838
+      ],
+      [
+        3.885780586188048e-16,
+        -0.8220130771809944,
+        0.9356568184481238
+      ]
+    ],
+    "mna_residual_pu": 7.191640501203643e-15
+  },
+  "reference_method": "Independent phase-domain modified nodal admittance with explicit phase fault constraints; no closed-form sequence fault equation."
+}

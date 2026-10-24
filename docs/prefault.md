@@ -1,0 +1,3 @@
+# Pre-fault operating point
+
+Without a supplied profile, internal source EMFs drive the positive-sequence network under no external load. Multiple sources may produce pre-fault circulating currents. A supplied bus phasor map replaces this no-load voltage profile; it may be created with `prefault.from_gridflow` from a converged GridFlow result. This is a compensation reference, not a transfer of load admittances or generator dynamic states. Only the studied positive-sequence component is returned; excluded islands are explicitly listed. Sources and motor equivalents must have appropriate fault-period sequence impedances supplied by the engineer.
